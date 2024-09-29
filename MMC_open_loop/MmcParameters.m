@@ -14,7 +14,7 @@ Nb_PM = 20;
 % Nominal DC voltage of one module (V)                   
 Vnom_PM = 1600;    
 % Power module capacitor (F)             
-C_PM = 8e-3; 
+C_PM = 8e3; 
 % Initial capacitor DC voltage (V)               
 Vc_Initial = Vnom_PM;  
 
@@ -25,10 +25,10 @@ Fnom = 50;
 Lac = 32e-3;
 % resistance (Ohm)
 Rac = 1;
-% Norminal ph-ph voltage (V)
-Vnom_AC = (Nb_PM * Vnom_PM) / 2;
+% Norminal ph-ph voltage (Vrms)
+Vnom_AC = (Nb_PM * Vnom_PM) / 2 * sqrt(3/2);
 % Rated power (VA)
-Snom = 1e6;
+Snom = 3e6;
 %Rated power factor (/)
 cosphi = .95;
 
