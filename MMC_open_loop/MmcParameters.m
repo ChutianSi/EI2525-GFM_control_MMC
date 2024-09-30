@@ -12,7 +12,7 @@ Ts_Power = 5e-6;
 % Number of power module per half-arm                 
 Nb_PM = 20;
 % Nominal DC voltage of one module (V)                   
-Vnom_PM = 1600;    
+Vnom_PM = 4e3;    
 % Power module capacitor (F)             
 C_PM = 8e3; 
 % Initial capacitor DC voltage (V)               
@@ -26,17 +26,17 @@ Lac = 32e-3;
 % resistance (Ohm)
 Rac = 1;
 % Norminal ph-ph voltage (Vrms)
-Vnom_AC = (Nb_PM * Vnom_PM) / 2 * sqrt(3/2);
+Vnom_AC = 44e3;
 % Rated power (VA)
-Snom = 3e6;
+Snom = 80e6;
 %Rated power factor (/)
 cosphi = .95;
 
 %% DC Source Parameters:
 % Nominal voltage plus DC source          
-VDCp = (Nb_PM * Vnom_PM) / 2; 
+VDCp = 80e3; 
 % Nominal voltage minus DC source  
-VDCm = (Nb_PM * Vnom_PM) / 2;   
+VDCm = 80e3;   
 
 %% Bridge Arm Parameters:
 % inductance (H)
