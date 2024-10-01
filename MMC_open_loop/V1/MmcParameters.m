@@ -14,7 +14,7 @@ Nb_PM = 20;
 % Nominal DC voltage of one module (V)                   
 Vnom_PM = 4e3;    
 % Power module capacitor (F)             
-C_PM = 8e3; 
+C_PM = 8e5; 
 % Initial capacitor DC voltage (V)               
 Vc_Initial = Vnom_PM;  
 
