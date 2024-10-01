@@ -54,18 +54,18 @@ Rs = 1e6;
 Cs = inf;
 
 %% Outer current control loop:
-omega = 2*pi*Fnom; %[p.u.]
+omega = 2*pi/50e-6; % norminal
 L = L0/2; 
 R = R0/2; 
 kpout = omega*sqrt(R^2*L^2+omega^2*L^4)/sqrt(omega^2+R^2);
 kiout = kpout*(R/L);
-% tau_sw = Ts_Power;
+% tau_sw = 2*Ts_Power;
 % alpha_i = (pi/2 - 75/180*pi) / tau_sw;
-% Kpout = L*alpha_i;
-% Kiout = R*alpha_i;
+% kpout = L*alpha_i;
+% kiout = R*alpha_i;
 
 %% Circulating current control loop:
-omegacir = 1; %[p.u.]
+omegacir = 2*pi/50e-6; % norminal
 kpcir = omegacir*sqrt(R0^2*L0^2+omegacir^2*L0^4)/sqrt(omegacir^2+R0^2);
 kicir = kpcir*(R0/L0);
 
