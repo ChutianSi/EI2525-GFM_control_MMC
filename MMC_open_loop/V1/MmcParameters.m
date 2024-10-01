@@ -54,11 +54,15 @@ Rs = 1e6;
 Cs = inf;
 
 %% Outer current control loop:
-omega = 1; %[p.u.]
+omega = 2*pi*Fnom; %[p.u.]
 L = L0/2; 
 R = R0/2; 
 kpout = omega*sqrt(R^2*L^2+omega^2*L^4)/sqrt(omega^2+R^2);
 kiout = kpout*(R/L);
+% tau_sw = Ts_Power;
+% alpha_i = (pi/2 - 75/180*pi) / tau_sw;
+% Kpout = L*alpha_i;
+% Kiout = R*alpha_i;
 
 %% Circulating current control loop:
 omegacir = 1; %[p.u.]
