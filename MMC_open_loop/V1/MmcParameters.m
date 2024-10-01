@@ -1,5 +1,5 @@
 %% MmcParameters.m -- define the parameters for mmc.
-% C.SI @25, Sep.
+%Project: Grid-forming Control of MMC - Case: Grid-following Control of MMC
 
 close;
 clear;
@@ -52,5 +52,17 @@ Fc = Fnom * 4;
 Ron = 1e-3;
 Rs = 1e6;
 Cs = inf;
+
+%% Outer current control loop:
+omega = 1; %[p.u.]
+L = L0/2; 
+R = R0/2; 
+kpout = omega*sqrt(R^2*L^2+omega^2*L^4)/sqrt(omega^2+R^2);
+kiout = kpout*(R/L);
+
+%% Circulating current control loop:
+omegacir = 1; %[p.u.]
+kpcir = omegacir*sqrt(R0^2*L0^2+omegacir^2*L0^4)/sqrt(omegacir^2+R0^2);
+kicir = kpcir*(R0/L0);
 
 open("Mmc.slx")
