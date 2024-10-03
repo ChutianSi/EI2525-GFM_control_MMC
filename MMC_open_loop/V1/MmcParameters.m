@@ -40,9 +40,18 @@ VDCp = 80e3;
 % Nominal voltage minus DC source  
 VDCm = 80e3;   
 
+%% Base values for normalizing:
+V_b = Vnom_AC; %Vrms base
+I_b = Snom/Vnom_AC/sqrt(3); %Irms base
+Ipp_b = Snom/Vnom_AC/sqrt(3/2); %Ipp base
+Z_b = Zn; %Z base
+w_b = 2*pi*Fnom; %w base
+f_b = Fnom; %f base
+L_b = Z_b/w_b; %L base
+
 %% Bridge Arm Parameters:
 % inductance (H)
-L0 = .2 * Zn / 2 / pi / Fnom;
+L0 = .2 * L_b;
 % resistance (Ohm)
 R0 = .1;
 
