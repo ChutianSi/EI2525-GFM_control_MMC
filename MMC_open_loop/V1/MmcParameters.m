@@ -73,15 +73,15 @@ tau_i = kpout/kiout
 % kpp = 1/alpha_i*alpha_p;
 % kip = 1*alpha_p;
 
-% alpha_p = alpha_i / 10;
-% kpp = alpha_p / alpha_i;
-% kip = alpha_p;
+alpha_p = alpha_i / 5;
+kpp = alpha_p / alpha_i;
+kip = alpha_p;
 
 % Trying
 % kpp = 0.00001;
-kpp = 0.00001;
-kip = 0.000001;
-tau_p = kpp/kip
+% kpp = 0.00001;
+% kip = 0.000001;
+% tau_p = kpp/kip
 
 %% Circulating current control loop:
 alpha_i = (pi/2 - 89.5/180*pi) / tau_sw;
