@@ -62,10 +62,10 @@ R = R0/2;
 % kpout = omega*sqrt(R^2*L^2+omega^2*L^4)/sqrt(omega^2+R^2);
 % kiout = kpout*(R/L);
 tau_sw = 1.5*Ts_Power;
-alpha_i = (pi/2 - 60/180*pi) / tau_sw;
-kpout = L*alpha_i;
-kiout = R*alpha_i;
-tau_i = kpout/kiout
+alpha_io = (pi/2 - 75/180*pi) / tau_sw;
+kpout = L*alpha_io;
+kiout = R*alpha_io;
+% tau_i = kpout/kiout
 
 %% Power loop
 % tau_sw2 = 1*Ts_Power;
@@ -73,8 +73,8 @@ tau_i = kpout/kiout
 % kpp = 1/alpha_i*alpha_p;
 % kip = 1*alpha_p;
 
-alpha_p = alpha_i / 5;
-kpp = alpha_p / alpha_i;
+alpha_p = alpha_io / 200;
+kpp = alpha_p / alpha_io;
 kip = alpha_p;
 
 % Trying
@@ -84,8 +84,8 @@ kip = alpha_p;
 % tau_p = kpp/kip
 
 %% Circulating current control loop:
-alpha_i = (pi/2 - 89.5/180*pi) / tau_sw;
-kpcir = L0*alpha_i;
-kicir = R0*alpha_i;
+alpha_ic = (pi/2 - 75/180*pi) / tau_sw;
+kpcir = L0*alpha_ic;
+kicir = R0*alpha_ic;
 
 open("Mmc.slx")
