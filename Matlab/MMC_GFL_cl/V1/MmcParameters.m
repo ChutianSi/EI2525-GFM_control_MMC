@@ -93,8 +93,12 @@ kip = alpha_p;
 % tau_p = kpp/kip
 
 %% Circulating current control loop:
-alpha_i = (pi/2 - 60/180*pi) / (2*L0/R0);%tau_sw;
-kpcir = 2*L0*alpha_i;
+% alpha_i = (pi/2 - 60/180*pi) / (2*L0/R0);%tau_sw;
+% kpcir = 2*L0*alpha_i;
+% kicir = R0*alpha_i;
+
+alpha_i = (pi/2 - 60/180*pi) / tau_sw;%tau_sw;
+kpcir = L0*alpha_i;
 kicir = R0*alpha_i;
 
 open("Mmc.slx")
