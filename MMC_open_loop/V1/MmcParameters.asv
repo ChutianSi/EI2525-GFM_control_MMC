@@ -1,0 +1,100 @@
+%% MmcParameters.m -- define the parameters for mmc.
+%Project: Grid-forming Control of MMC - Case: Grid-following Control of MMC
+
+close;
+clear;
+clc;
+
+% SPS Simulation time step(s)      
+Ts_Power = 2e-6;
+
+%% MMC Submodule Parameters:
+% Number of power module per half-arm                 
+Nb_PM = 20;
+% Nominal DC voltage of one module (V)                   
+Vnom_PM = 4e3;    
+% Power module capacitor (F)             
+C_PM = 8e5; 
+% Initial capacitor DC voltage (V)               
+Vc_Initial = Vnom_PM;  
+
+%% AC Grid Parameters:
+% Nominal system frequency (Hz)
+Fnom = 50; 
+% inductance (H)
+Lac = 32e-3;
+% resistance (Ohm)
+Rac = 1;
+% Norminal ph-ph voltage (Vrms)
+Vnom_AC = 44e3;
+% Rated power (VA)
+Snom = 80e6;
+% Rated power factor (/)
+cosphi = .95;
+% Norminal impedance (Ohm)
+Zn = Vnom_AC^2 / Snom;
+
+%% DC Source Parameters:
+% Nominal voltage plus DC source          
+VDCp = 80e3; 
+% Nominal voltage minus DC source  
+VDCm = 80e3;   
+
+%% Base values for normalizing:
+V_b = Vnom_AC; %Vrms base
+I_b = Snom/Vnom_AC/sqrt(3); %Irms base
+Ipp_b = Snom/Vnom_AC/sqrt(3/2); %Ipp base
+Z_b = Zn; %Z base
+w_b = 2*pi*Fnom; %w base
+f_b = Fnom; %f base
+L_b = Z_b/w_b; %L base
+
+%% Bridge Arm Parameters:
+% inductance (H)
+L0 = .2 * L_b;
+% resistance (Ohm)
+R0 = .1;
+
+%% Modulator Parameters:
+% Carriers frequency (Hz)
+Fc = Fnom * 4;       
+
+%% Switches parameters:
+Ron = 1e-3;
+Rs = 1e6;
+Cs = inf;
+
+%% Outer current control loop:
+% omega = 2*pi/50e-6/2; % norminal
+L = L0/2; 
+R = R0/2; 
+% kpout = omega*sqrt(R^2*L^2+omega^2*L^4)/sqrt(omega^2+R^2);
+% kiout = kpout*(R/L);
+tau_sw = 1.5*Ts_Power;
+alpha_i = (pi/2 - 60/180*pi) / tau_sw;
+kpout = L*alpha_i;
+kiout = R*alpha_i;
+tau_i = kpout/kiout
+
+%% Power loop
+% tau_sw2 = 1*Ts_Power;
+% alpha_p = (pi/2 - 60/180*pi) / tau_sw2;
+% kpp = 1/alpha_i*alpha_p;
+% kip = 1*alpha_p;
+
+alpha_p = alpha_i / 5;
+kpp = alpha_p / alpha_i;
+kip = alpha_p;
+
+% Trying
+% kpp = 0.00001;
+% kpp = 0.00001;
+% kip = 0.000001;
+% tau_p = kpp/kip
+
+%% Circulating current control loop:
+alpha_i = (pi/2 - 89.5/180*pi) / (tau_sw/2);
+kpcir = 2*L0*alpha_i;
+kicir = R0*alpha_i;
+
+open("Mmc.slx")
