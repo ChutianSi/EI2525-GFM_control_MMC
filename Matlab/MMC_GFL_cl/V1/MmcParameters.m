@@ -73,7 +73,7 @@ R = R0/2;
 % kpout = omega*sqrt(R^2*L^2+omega^2*L^4)/sqrt(omega^2+R^2);
 % kiout = kpout*(R/L);
 tau_sw = 1.5*Ts_Power;
-alpha_i = (pi/2 - 60/180*pi) / tau_sw;
+alpha_i = (pi/2 - 87.5/180*pi) / tau_sw;
 kpout = L*alpha_i;
 kiout = R*alpha_i;
 % tau_i = kpout/kiout
@@ -84,7 +84,7 @@ kiout = R*alpha_i;
 % kpp = 1/alpha_i*alpha_p;
 % kip = 1*alpha_p;
 
-alpha_p = alpha_i / 500;
+alpha_p = alpha_i / 100;
 kpp = alpha_p / alpha_i;
 kip = alpha_p;
 
@@ -98,9 +98,9 @@ kip = alpha_p;
 % alpha_i = (pi/2 - 60/180*pi) / (2*L0/R0);%tau_sw;
 % kpcir = 2*L0*alpha_i;
 % kicir = R0*alpha_i;
-alpha_ic = (pi/2 - 75/180*pi) / tau_sw;
-kpcir = L0*alpha_ic;
-kicir = R0*alpha_ic;
 
+alpha_i = (pi/2 - 89/180*pi) / tau_sw;%tau_sw;
+kpcir = L0*alpha_i;
+kicir = R0*alpha_i;
 
 open("Mmc.slx")
