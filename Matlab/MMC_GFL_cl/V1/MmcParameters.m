@@ -6,7 +6,7 @@ clear;
 clc;
 
 % SPS Simulation time step(s)      
-Ts_Power = 2e-6;
+Ts_Power = 1e-5;
 
 %% MMC Submodule Parameters:
 % Number of power module per half-arm                 
@@ -16,7 +16,9 @@ Vnom_PM = 4e3;
 % Power module capacitor (F)             
 C_PM = 8e5; 
 % Initial capacitor DC voltage (V)               
-Vc_Initial = Vnom_PM;  
+Vc_Initial = Vnom_PM;
+% Maximum allowed capacitor voltage unbalance (%)
+SigmaM = 5;
 
 %% AC Grid Parameters:
 % Nominal system frequency (Hz)
@@ -73,7 +75,7 @@ R = R0/2;
 % kpout = omega*sqrt(R^2*L^2+omega^2*L^4)/sqrt(omega^2+R^2);
 % kiout = kpout*(R/L);
 tau_sw = 1.5*Ts_Power;
-alpha_i = (pi/2 - 87.5/180*pi) / tau_sw;
+alpha_i = (pi/2 - 60/180*pi) / tau_sw;
 kpout = L*alpha_i;
 kiout = R*alpha_i;
 % tau_i = kpout/kiout
@@ -99,8 +101,8 @@ kip = alpha_p;
 % kpcir = 2*L0*alpha_i;
 % kicir = R0*alpha_i;
 
-alpha_i = (pi/2 - 89/180*pi) / tau_sw;%tau_sw;
-kpcir = L0*alpha_i;
-kicir = R0*alpha_i;
+alpha_ic = (pi/2 - 80/180*pi) / tau_sw;%tau_sw;
+kpcir = L0*alpha_ic;
+kicir = R0*alpha_ic;
 
 open("Mmc.slx")
