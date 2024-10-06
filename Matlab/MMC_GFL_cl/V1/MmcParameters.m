@@ -82,7 +82,7 @@ kpp = alpha_p / alpha_i;
 kip = alpha_p;
 
 %% Circulating current control loop:
-alpha_ic = (pi/2 - 70/180*pi) / tau_sw;%tau_sw;
+alpha_ic = (pi/2 - 80/180*pi) / tau_sw;%tau_sw;
 kpcir = L0*alpha_ic;
 kicir = R0*alpha_ic;
 
