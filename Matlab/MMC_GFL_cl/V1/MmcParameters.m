@@ -14,11 +14,11 @@ Nb_PM = 20;
 % Nominal DC voltage of one module (V)                   
 Vnom_PM = 4e3;    
 % Power module capacitor (F)             
-C_PM = 5e-3; 
+C_PM = 4e-3; 
 % Initial capacitor DC voltage (V)               
 Vc_Initial = Vnom_PM;
 % Maximum allowed capacitor voltage unbalance (%)
-SigmaM = 8;
+SigmaM = 10;
 
 %% AC Grid Parameters:
 % Nominal system frequency (Hz)
@@ -77,7 +77,7 @@ kpout = L*alpha_i;
 kiout = R*alpha_i;
 
 %% Power loop
-alpha_p = alpha_i / 150;
+alpha_p = alpha_i / 120;
 kpp = alpha_p / alpha_i;
 kip = alpha_p;
 
