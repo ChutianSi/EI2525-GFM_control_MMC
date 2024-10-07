@@ -6,7 +6,7 @@ clear;
 clc;
 
 % SPS Simulation time step(s)      
-Ts_Power = 1e-5;
+Ts_Power = .5e-5;
 
 %% MMC Submodule Parameters:
 % Number of power module per half-arm                 
@@ -14,7 +14,7 @@ Nb_PM = 20;
 % Nominal DC voltage of one module (V)                   
 Vnom_PM = 4e3;    
 % Power module capacitor (F)             
-C_PM = 4e-3; 
+C_PM = 5e-3; 
 % Initial capacitor DC voltage (V)               
 Vc_Initial = Vnom_PM;
 % Maximum allowed capacitor voltage unbalance (%)
@@ -23,10 +23,10 @@ SigmaM = 10;
 %% AC Grid Parameters:
 % Nominal system frequency (Hz)
 Fnom = 50; 
-% inductance (H)
-Lac = 32e-3;
-% resistance (Ohm)
-Rac = 1;
+% % inductance (H)
+% Lac = 32e-3;
+% % resistance (Ohm)
+% Rac = 1;
 % Norminal ph-ph voltage (Vrms)
 Vnom_AC = 44e3;
 % Rated power (VA)
@@ -71,18 +71,18 @@ Cs = inf;
 %% Outer current control loop:
 L = L0/2; 
 R = R0/2; 
-tau_sw = 1.5*Ts_Power;
-alpha_i = (pi/2 - 60/180*pi) / tau_sw;
+tau_sw = Ts_Power;
+alpha_i = (pi/2 - 50/180*pi) / tau_sw;
 kpout = L*alpha_i;
 kiout = R*alpha_i;
 
 %% Power loop
-alpha_p = alpha_i / 120;
+alpha_p = 300;
 kpp = alpha_p / alpha_i;
 kip = alpha_p;
 
 %% Circulating current control loop:
-alpha_ic = (pi/2 - 80/180*pi) / tau_sw;%tau_sw;
+alpha_ic = (pi/2 - 75/180*pi) / tau_sw;%tau_sw;
 kpcir = L0*alpha_ic;
 kicir = R0*alpha_ic;
 
