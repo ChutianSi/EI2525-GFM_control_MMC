@@ -6,7 +6,7 @@ clear;
 clc;
 
 % SPS Simulation time step(s)      
-Ts_Power = .5e-5;
+Ts_Power = 1e-5;
 
 %% MMC Submodule Parameters:
 % Number of power module per half-arm                 
@@ -72,17 +72,17 @@ Cs = inf;
 L = L0/2; 
 R = R0/2; 
 tau_sw = Ts_Power;
-alpha_i = (pi/2 - 50/180*pi) / tau_sw;
+alpha_i = (pi/2 - 75/180*pi) / tau_sw;
 kpout = L*alpha_i;
 kiout = R*alpha_i;
 
 %% Power loop
-alpha_p = 300;
+alpha_p = 100;
 kpp = alpha_p / alpha_i;
 kip = alpha_p;
 
 %% Circulating current control loop:
-alpha_ic = (pi/2 - 75/180*pi) / tau_sw;%tau_sw;
+alpha_ic = (pi/2 - 75/180*pi) / tau_sw;
 kpcir = L0*alpha_ic;
 kicir = R0*alpha_ic;
 
