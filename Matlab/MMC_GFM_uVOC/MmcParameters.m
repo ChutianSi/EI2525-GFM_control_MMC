@@ -86,4 +86,23 @@ alpha_ic = (pi/2 - 75/180*pi) / tau_sw;
 kpcir = L0*alpha_ic;
 kicir = R0*alpha_ic;
 
+%% VOC parameters:
+N = 3;    % number of phase
+
+% nominated
+V0 = 1; % nominal L-N RMS voltage
+P_rated = cosphi; % Rated real power
+Q_rated = sqrt(1-cosphi^2); % Rated reactive power
+
+% Not nominated
+% V0 = Vnom_AC; % nominal L-N RMS voltage
+% P_rated = Snom*cosphi; % Rated real power
+% Q_rated = Snom*sqrt(1-cosphi^2); % Rated reactive power
+
+delta_wmax = pi; 
+Vmax = 1.05*V0;
+
+eta = 0.1*N*delta_wmax*Vmax^2/P_rated;
+mu = 0.1*2*eta*Q_rated/N/((2*Vmax^2-V0^2)^2-V0^4);
+
 open("Mmc.slx")
