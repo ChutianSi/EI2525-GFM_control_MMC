@@ -72,12 +72,12 @@ Cs = inf;
 L = L0/2; 
 R = R0/2; 
 tau_sw = Ts_Power;
-alpha_i = (pi/2 - 55/180*pi) / tau_sw;
+alpha_i = (pi/2 - 75/180*pi) / tau_sw;
 kpout = L*alpha_i;
 kiout = R*alpha_i;
 
 %% Power loop
-alpha_p = alpha_i/15;
+alpha_p = 100;
 kpp = alpha_p / alpha_i;
 kip = alpha_p;
 
