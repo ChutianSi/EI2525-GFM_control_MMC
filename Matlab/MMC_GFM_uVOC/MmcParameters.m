@@ -102,7 +102,7 @@ Q_rated = sqrt(1-cosphi^2); % Rated reactive power
 delta_wmax = pi; 
 Vmax = 1.05*V0;
 
-eta = 0.1*N*delta_wmax*Vmax^2/P_rated;
-mu = 0.1*2*eta*Q_rated/N/((2*Vmax^2-V0^2)^2-V0^4);
+eta = N*delta_wmax*Vmax^2/Q_rated;
+mu = 2*eta*P_rated/N/((2*Vmax^2-V0^2)^2-V0^4);
 
 open("Mmc.slx")
