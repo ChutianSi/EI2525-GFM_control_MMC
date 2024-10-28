@@ -94,7 +94,7 @@ V0 = 1; % nominal L-N RMS voltage
 P_rated = cosphi; % Rated real power
 Q_rated = sqrt(1-cosphi^2); % Rated reactive power
 
-% Not nominated
+% %%Not nominated
 % V0 = Vnom_AC; % nominal L-N RMS voltage
 % P_rated = Snom*cosphi; % Rated real power
 % Q_rated = Snom*sqrt(1-cosphi^2); % Rated reactive power
