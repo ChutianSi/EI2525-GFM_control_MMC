@@ -103,6 +103,7 @@ delta_wmax = pi;
 Vmax = 1.05*V0;
 
 eta = N*delta_wmax*Vmax^2/Q_rated;
-mu = 2*eta*P_rated/N/((2*Vmax^2-V0^2)^2-V0^4);
+% mu = 2*eta*P_rated/N/((2*Vmax^2-V0^2)^2-V0^4);  % phi = pi/2
+mu = 2*eta*Q_rated/N/((2*Vmax^2-V0^2)^2-V0^4);  % phi = 0
 
 open("Mmc.slx")
