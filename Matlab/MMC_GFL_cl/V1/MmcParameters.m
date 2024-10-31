@@ -19,6 +19,9 @@ C_PM = 5e-3;
 Vc_Initial = Vnom_PM;
 % Maximum allowed capacitor voltage unbalance (%)
 SigmaM = 10;
+% Equivalent capacitance (F)
+C_eq = 4 * C_PM / Nb_PM * 2;
+K = (3*pi/4 - 55/180*pi) / Ts_Power;
 
 %% AC Grid Parameters:
 % Nominal system frequency (Hz)
