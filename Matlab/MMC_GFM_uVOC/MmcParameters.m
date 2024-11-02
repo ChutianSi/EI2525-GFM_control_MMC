@@ -12,7 +12,7 @@ Ts_Power = 1e-5;
 % Number of power module per half-arm                 
 Nb_PM = 20;
 % Nominal DC voltage of one module (V)                   
-Vnom_PM = 4e3;    
+Vnom_PM = 4.4e3;    
 % Power module capacitor (F)             
 C_PM = 6e-3; 
 % Initial capacitor DC voltage (V)               
@@ -36,13 +36,13 @@ cosphi = .95;
 % Norminal impedance (Ohm)
 Zn = Vnom_AC^2 / Snom;
 % Short circuit Ratio (/)
-SCR = 10;
+SCR = 1.2;
 
 %% DC Source Parameters:
 % Nominal voltage plus DC source          
-VDCp = 40e3; 
+VDCp = 44e3; 
 % Nominal voltage minus DC source  
-VDCm = 40e3;   
+VDCm = 44e3;   
 
 %% Base values for normalizing:
 V_b = Vnom_AC; %Vrms base
@@ -76,10 +76,12 @@ alpha_i = (pi/2 - 75/180*pi) / tau_sw;
 kpout = L*alpha_i;
 kiout = R*alpha_i;
 
-%% Power loop
-alpha_p = 1000;
-kpp = alpha_p / alpha_i;
-kip = alpha_p;
+%% voltage loop
+% alpha_p = 1000;
+% kpp = alpha_p / alpha_i;
+% kip = alpha_p;
+kpp = 2;
+kip = 200;
 
 %% Circulating current control loop:
 alpha_ic = (pi/2 - 75/180*pi) / tau_sw;
