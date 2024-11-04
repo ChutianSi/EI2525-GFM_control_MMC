@@ -80,8 +80,8 @@ kiout = R*alpha_i;
 % alpha_p = 1000;
 % kpp = alpha_p / alpha_i;
 % kip = alpha_p;
-kpp = 2;
-kip = 200;
+kpp = 1.5;
+kip = 5;
 
 %% Circulating current control loop:
 alpha_ic = (pi/2 - 75/180*pi) / tau_sw;
