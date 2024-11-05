@@ -23,12 +23,8 @@ SigmaM = 10;
 %% AC Grid Parameters:
 % Nominal system frequency (Hz)
 Fnom = 50; 
-% % inductance (H)
-% Lac = 32e-3;
-% % resistance (Ohm)
-% Rac = 1;
 % Norminal ph-ph voltage (Vrms)
-Vnom_AC = 44e3;
+Vnom_AC = 40e3;
 % Rated power (VA)
 Snom = 80e6;
 % Rated power factor (/)
@@ -81,7 +77,7 @@ kiout = R*alpha_i;
 % kpp = alpha_p / alpha_i;
 % kip = alpha_p;
 kpp = 1.5;
-kip = 5;
+kip = 500;
 
 %% Circulating current control loop:
 alpha_ic = (pi/2 - 75/180*pi) / tau_sw;
