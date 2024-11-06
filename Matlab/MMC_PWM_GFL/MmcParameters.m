@@ -14,7 +14,7 @@ Nb_PM = 20;
 % Nominal DC voltage of one module (V)                   
 Vnom_PM = 4e3;    
 % Power module capacitor (F)             
-C_PM = 5e-3; 
+C_PM = 5e5; 
 % Initial capacitor DC voltage (V)               
 Vc_Initial = Vnom_PM;
 % Maximum allowed capacitor voltage unbalance (%)
@@ -89,4 +89,6 @@ alpha_ic = (pi/2 - 75/180*pi) / tau_sw;
 kpcir = L0*alpha_ic;
 kicir = R0*alpha_ic;
 
+%% PWM switching frequency
+fs = 1000; % switching frequency [Hz]
 open("Mmc.slx")

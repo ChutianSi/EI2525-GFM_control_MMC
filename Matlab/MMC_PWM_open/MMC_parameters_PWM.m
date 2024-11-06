@@ -1,4 +1,25 @@
-Ts = 2e-6;
+%% Mmc Parameters PWM 
+% Project: Grid-forming control of MMC - PWM open loop control
+
+close;
+clear;
+clc;
+
+% SPS Simulation time step(s)      
+Ts_Power = 1e-5;
+
+%% MMC Submodule Parameters:
+% Number of power module per half-arm                 
+Nb_PM = 20;
+% Nominal DC voltage of one module (V)                   
+Vnom_PM = 4.4e3;    
+% Power module capacitor (F)             
+C_PM = 6e-3; 
+% Initial capacitor DC voltage (V)               
+Vc_Initial = Vnom_PM;
+% Maximum allowed capacitor voltage unbalance (%)
+SigmaM = 10;
+
 
 % By pass capacitor
 C0 = 1e-3;
