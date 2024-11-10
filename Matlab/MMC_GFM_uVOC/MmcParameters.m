@@ -63,7 +63,7 @@ Fc = Fnom * 4;
 Ron = 1e-3;
 Rs = 1e6;
 Cs = inf;
-fs = 1000; % switching frequency [Hz]
+fs = 400; % switching frequency [Hz]
 
 %% Outer current control loop:
 L = L0/2; 
