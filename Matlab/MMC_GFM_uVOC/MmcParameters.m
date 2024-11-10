@@ -12,7 +12,7 @@ Ts_Power = 1e-5;
 % Number of power module per half-arm                 
 Nb_PM = 20;
 % Nominal DC voltage of one module (V)                   
-Vnom_PM = 4.4e3;    
+Vnom_PM = 4.8e3;    
 % Power module capacitor (F)             
 C_PM = 6e-3; 
 % Initial capacitor DC voltage (V)               
@@ -36,9 +36,9 @@ SCR = 1.2;
 
 %% DC Source Parameters:
 % Nominal voltage plus DC source          
-VDCp = 44e3; 
+VDCp = 48e3; 
 % Nominal voltage minus DC source  
-VDCm = 44e3;   
+VDCm = 48e3;   
 
 %% Base values for normalizing:
 V_b = Vnom_AC; %Vrms base
@@ -51,7 +51,7 @@ L_b = Z_b/w_b; %L base
 
 %% Bridge Arm Parameters:
 % inductance (H)
-L0 = .2 * L_b;
+L0 = .3 * L_b;
 % resistance (Ohm)
 R0 = .1;
 
@@ -101,7 +101,7 @@ Q_rated = sqrt(1-cosphi^2); % Rated reactive power
 delta_wmax = pi; 
 Vmax = 1.05*V0;
 
-eta = N*delta_wmax*Vmax^2/P_rated; % phi = pi/2
+eta = N*delta_wmax*1^2/P_rated; % phi = pi/2
 %eta = N*delta_wmax*Vmax^2/Q_rated; %phi = 0
 mu = 2*eta*Q_rated/N/((2*Vmax^2-V0^2)^2-V0^4);  % phi = pi/2
 %mu = 2*eta*P_rated/N/((2*Vmax^2-V0^2)^2-V0^4);  % phi = 0
