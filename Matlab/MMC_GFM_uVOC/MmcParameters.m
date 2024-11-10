@@ -51,7 +51,7 @@ L_b = Z_b/w_b; %L base
 
 %% Bridge Arm Parameters:
 % inductance (H)
-L0 = .3 * L_b;
+L0 = .25 * L_b;
 % resistance (Ohm)
 R0 = .1;
 
@@ -101,9 +101,8 @@ Q_rated = sqrt(1-cosphi^2); % Rated reactive power
 delta_wmax = pi; 
 Vmax = 1.05*V0;
 
-eta = N*delta_wmax*1^2/P_rated; % phi = pi/2
-%eta = N*delta_wmax*Vmax^2/Q_rated; %phi = 0
-mu = 2*eta*Q_rated/N/((2*Vmax^2-V0^2)^2-V0^4);  % phi = pi/2
-%mu = 2*eta*P_rated/N/((2*Vmax^2-V0^2)^2-V0^4);  % phi = 0
+phi_r = pi/2;
+eta = N*delta_wmax*V0^2/(P_rated*sin(phi_r)-Q_rated*cos(phi_r));
+mu = eta/2/N/V0^2/(Vmax^2-V0^2)*(P_rated*cos(phi_r)+Q_rated*sin(phi_r));
 
 open("Mmc.slx")
