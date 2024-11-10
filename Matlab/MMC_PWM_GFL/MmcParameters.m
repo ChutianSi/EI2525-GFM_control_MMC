@@ -91,4 +91,4 @@ kicir = R0*alpha_ic;
 
 %% PWM switching frequency
 fs = 1000; % switching frequency [Hz]
-open("Mmc.slx")
+open("Mmc_PWM.slx")
