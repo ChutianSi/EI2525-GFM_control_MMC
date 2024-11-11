@@ -32,7 +32,7 @@ cosphi = .95;
 % Norminal impedance (Ohm)
 Zn = Vnom_AC^2 / Snom;
 % Short circuit Ratio (/)
-SCR = 1.2;
+SCR = 1.0;
 
 %% DC Source Parameters:
 % Nominal voltage plus DC source          
@@ -69,7 +69,7 @@ fs = 400; % switching frequency [Hz]
 L = L0/2; 
 R = R0/2; 
 tau_sw = Ts_Power;
-alpha_i = (pi/2 - 75/180*pi) / tau_sw;
+alpha_i = (pi/2 - 85/180*pi) / tau_sw;
 kpout = L*alpha_i;
 kiout = R*alpha_i;
 
@@ -81,7 +81,7 @@ kpp = 1.5;
 kip = 500;
 
 %% Circulating current control loop:
-alpha_ic = (pi/2 - 75/180*pi) / tau_sw;
+alpha_ic = (pi/2 - 65/180*pi) / tau_sw;
 kpcir = L0*alpha_ic;
 kicir = R0*alpha_ic;
 
