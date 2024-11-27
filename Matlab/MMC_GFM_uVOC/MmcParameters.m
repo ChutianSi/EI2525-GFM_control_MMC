@@ -32,7 +32,7 @@ cosphi = .95;
 % Norminal impedance (Ohm)
 Zn = Vnom_AC^2 / Snom;
 % Short circuit Ratio (/)
-SCR = 1.0;
+SCR = 2;
 
 %% DC Source Parameters:
 % Nominal voltage plus DC source          
@@ -51,13 +51,9 @@ L_b = Z_b/w_b; %L base
 
 %% Bridge Arm Parameters:
 % inductance (H)
-L0 = .25 * L_b;
+L0 = .2 * L_b;
 % resistance (Ohm)
-R0 = .1;
-
-%% Modulator Parameters:
-% Carriers frequency (Hz)
-Fc = Fnom * 4;       
+R0 = .1;   
 
 %% Switches parameters:
 Ron = 1e-3;
@@ -102,7 +98,7 @@ delta_wmax = pi;
 Vmax = 1.05*V0;
 
 phi_r = pi/2;
-eta = N*delta_wmax*V0^2/(P_rated*sin(phi_r)-Q_rated*cos(phi_r));
-mu = eta/2/N/V0^2/(Vmax^2-V0^2)*(P_rated*cos(phi_r)+Q_rated*sin(phi_r));
+eta = delta_wmax*V0^2/(P_rated*sin(phi_r)-Q_rated*cos(phi_r));
+mu = eta/2/V0^2/(Vmax^2-V0^2)*(P_rated*cos(phi_r)+Q_rated*sin(phi_r));
 
 open("Mmc.slx")

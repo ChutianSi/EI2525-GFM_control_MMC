@@ -12,16 +12,14 @@ Ts_Power = 1e-5;
 % Number of power module per half-arm                 
 Nb_PM = 20;
 % Nominal DC voltage of one module (V)                   
-Vnom_PM = 4e3;    
+Vnom_PM = 4.8e3;    
 % Power module capacitor (F)             
-C_PM = 5e-3; 
+C_PM = 6e-3; 
 % Initial capacitor DC voltage (V)               
 Vc_Initial = Vnom_PM;
 % Maximum allowed capacitor voltage unbalance (%)
 SigmaM = 10;
-% Equivalent capacitance (F)
-C_eq = 4 * C_PM / Nb_PM * 2;
-K = (3*pi/4 - 55/180*pi) / Ts_Power;
+fs = 400; % switching frequency [Hz]
 
 %% AC Grid Parameters:
 % Nominal system frequency (Hz)
@@ -31,7 +29,7 @@ Fnom = 50;
 % % resistance (Ohm)
 % Rac = 1;
 % Norminal ph-ph voltage (Vrms)
-Vnom_AC = 44e3;
+Vnom_AC = 40e3;
 % Rated power (VA)
 Snom = 80e6;
 % Rated power factor (/)
@@ -43,9 +41,9 @@ SCR = 10;
 
 %% DC Source Parameters:
 % Nominal voltage plus DC source          
-VDCp = 40e3; 
+VDCp = 48e3; 
 % Nominal voltage minus DC source  
-VDCm = 40e3;   
+VDCm = 48e3;   
 
 %% Base values for normalizing:
 V_b = Vnom_AC; %Vrms base
@@ -85,7 +83,7 @@ kpp = alpha_p / alpha_i;
 kip = alpha_p;
 
 %% Circulating current control loop:
-alpha_ic = (pi/2 - 75/180*pi) / tau_sw;
+alpha_ic = (pi/2 - 65/180*pi) / tau_sw;
 kpcir = L0*alpha_ic;
 kicir = R0*alpha_ic;
 
