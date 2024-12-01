@@ -19,7 +19,7 @@ C_PM = 6e-3;
 Vc_Initial = Vnom_PM;
 % Maximum allowed capacitor voltage unbalance (%)
 SigmaM = 10;
-fs = 400; % switching frequency [Hz]
+fs = 1000; % switching frequency [Hz]
 
 %% AC Grid Parameters:
 % Nominal system frequency (Hz)
@@ -37,7 +37,7 @@ cosphi = .95;
 % Norminal impedance (Ohm)
 Zn = Vnom_AC^2 / Snom;
 % Short circuit Ratio (/)
-SCR = 10;
+SCR = 2;
 
 %% DC Source Parameters:
 % Nominal voltage plus DC source          
@@ -83,7 +83,7 @@ kpp = alpha_p / alpha_i;
 kip = alpha_p;
 
 %% Circulating current control loop:
-alpha_ic = (pi/2 - 65/180*pi) / tau_sw;
+alpha_ic = (pi/2 - 87/180*pi) / tau_sw;
 kpcir = L0*alpha_ic;
 kicir = R0*alpha_ic;
 
