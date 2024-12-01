@@ -82,7 +82,7 @@ kpcir = L0*alpha_ic;
 kicir = R0*alpha_ic;
 
 %% VOC parameters:
-N = 3;    % number of phase
+N = 1;
 
 % nominated
 V0 = 1; % nominal L-N RMS voltage
@@ -98,7 +98,7 @@ delta_wmax = pi;
 Vmax = 1.05*V0;
 
 phi_r = pi/2;
-eta = delta_wmax*V0^2/(P_rated*sin(phi_r)-Q_rated*cos(phi_r));
-mu = eta/2/V0^2/(Vmax^2-V0^2)*(P_rated*cos(phi_r)+Q_rated*sin(phi_r));
+eta = N*delta_wmax*Vmax^2/(P_rated*sin(phi_r)-Q_rated*cos(phi_r));
+mu = eta*2/((2*Vmax^2-V0^2)^2-V0^4)*(P_rated*cos(phi_r)+Q_rated*sin(phi_r))/N;
 
 open("Mmc.slx")
