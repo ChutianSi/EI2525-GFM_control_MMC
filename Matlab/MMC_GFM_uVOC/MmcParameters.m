@@ -59,7 +59,7 @@ R0 = .1;
 Ron = 1e-3;
 Rs = 1e6;
 Cs = inf;
-fs = 400; % switching frequency [Hz]
+fs = 1000; % switching frequency [Hz]
 
 %% Outer current control loop:
 L = L0/2; 
@@ -77,7 +77,7 @@ kpp = 1.5;
 kip = 500;
 
 %% Circulating current control loop:
-alpha_ic = (pi/2 - 65/180*pi) / tau_sw;
+alpha_ic = (pi/2 - 87/180*pi) / tau_sw;
 kpcir = L0*alpha_ic;
 kicir = R0*alpha_ic;
 
