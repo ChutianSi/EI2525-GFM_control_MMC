@@ -1,5 +1,5 @@
 %% MmcParameters.m -- define the parameters for mmc.
-% Project: Grid-forming Control of MMC - Case: Grid-following Control of MMC
+% Project: Grid-forming Control of MMC - Case: uVOC Control of MMC
 
 close;
 clear;
@@ -89,15 +89,11 @@ V0 = 1; % nominal L-N RMS voltage
 P_rated = cosphi; % Rated real power
 Q_rated = sqrt(1-cosphi^2); % Rated reactive power
 
-% %%Not nominated
-% V0 = Vnom_AC; % nominal L-N RMS voltage
-% P_rated = Snom*cosphi; % Rated real power
-% Q_rated = Snom*sqrt(1-cosphi^2); % Rated reactive power
-
 delta_wmax = pi; 
 Vmax = 1.05*V0;
 
 phi_r = pi/2;
+
 %Old equations
 % eta = N*delta_wmax*Vmax^2/(P_rated*sin(phi_r)-Q_rated*cos(phi_r));
 % mu = eta*2/((2*Vmax^2-V0^2)^2-V0^4)*(P_rated*cos(phi_r)+Q_rated*sin(phi_r))/N;
