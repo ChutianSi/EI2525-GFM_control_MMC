@@ -14,7 +14,7 @@ Nb_PM = 20;
 % Nominal DC voltage of one module (V)                   
 Vnom_PM = 4.8e3;    
 % Power module capacitor (F)             
-C_PM = 6e-3; 
+C_PM = 8e-2; 
 % Initial capacitor DC voltage (V)               
 Vc_Initial = Vnom_PM;
 % Maximum allowed capacitor voltage unbalance (%)
@@ -32,7 +32,7 @@ cosphi = .95;
 % Norminal impedance (Ohm)
 Zn = Vnom_AC^2 / Snom;
 % Short circuit Ratio (/)
-SCR = 2;
+SCR = 10;
 
 %% DC Source Parameters:
 % Nominal voltage plus DC source          
@@ -51,7 +51,7 @@ L_b = Z_b/w_b; %L base
 
 %% Bridge Arm Parameters:
 % inductance (H)
-L0 = .2 * L_b; 
+L0 = .25 * L_b; 
 % resistance (Ohm)
 R0 = .1;   
 
@@ -95,10 +95,10 @@ Vmax = 1.05*V0;
 phi_r = pi/2;
 
 %Old equations
-% eta = N*delta_wmax*Vmax^2/(P_rated*sin(phi_r)-Q_rated*cos(phi_r));
-% mu = eta*2/((2*Vmax^2-V0^2)^2-V0^4)*(P_rated*cos(phi_r)+Q_rated*sin(phi_r))/N;
+eta = N*delta_wmax*Vmax^2/(P_rated*sin(phi_r)-Q_rated*cos(phi_r));
+mu = eta*4/((2*Vmax^2-V0^2)^2-V0^4)*(P_rated*cos(phi_r)+Q_rated*sin(phi_r))/N;
 
 %New equations
-eta = delta_wmax*2*Vmax^2/P_rated;
-mu = eta*4*Q_rated/((2*Vmax^2-V0^2)^2-V0^4);
+% eta = delta_wmax*2*Vmax^2/P_rated;
+% mu = eta*4*Q_rated/((2*Vmax^2-V0^2)^2-V0^4);
 open("Mmc.slx")

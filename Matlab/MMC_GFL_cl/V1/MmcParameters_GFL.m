@@ -37,7 +37,7 @@ cosphi = .95;
 % Norminal impedance (Ohm)
 Zn = Vnom_AC^2 / Snom;
 % Short circuit Ratio (/)
-SCR = 2;
+SCR = 20;
 
 %% DC Source Parameters:
 % Nominal voltage plus DC source          

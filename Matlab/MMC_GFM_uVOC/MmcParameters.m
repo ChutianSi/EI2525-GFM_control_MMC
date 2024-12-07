@@ -14,7 +14,7 @@ Nb_PM = 20;
 % Nominal DC voltage of one module (V)                   
 Vnom_PM = 4.8e3;    
 % Power module capacitor (F)             
-C_PM = 6e-3; 
+C_PM = 6e5; 
 % Initial capacitor DC voltage (V)               
 Vc_Initial = Vnom_PM;
 % Maximum allowed capacitor voltage unbalance (%)
@@ -32,7 +32,7 @@ cosphi = .95;
 % Norminal impedance (Ohm)
 Zn = Vnom_AC^2 / Snom;
 % Short circuit Ratio (/)
-SCR = 2;
+SCR = 10;
 
 %% DC Source Parameters:
 % Nominal voltage plus DC source          
@@ -63,6 +63,7 @@ fs = 1000; % switching frequency [Hz]
 
 %% Outer current control loop:
 L = L0/2; 
+% L = L0/2 + L_b/SCR;
 R = R0/2; 
 tau_sw = Ts_Power;
 alpha_i = (pi/2 - 85/180*pi) / tau_sw;

@@ -1,5 +1,5 @@
 %% MmcParameters.m -- define the parameters for mmc.
-% Project: Grid-forming Control of MMC - Case: Grid-following Control of MMC
+% Project: Grid-forming Control of MMC - Case: uVOC Control of MMC
 
 close;
 clear;
@@ -14,7 +14,7 @@ Nb_PM = 20;
 % Nominal DC voltage of one module (V)                   
 Vnom_PM = 4.8e3;    
 % Power module capacitor (F)             
-C_PM = 6e-3; 
+C_PM = 8e-2; 
 % Initial capacitor DC voltage (V)               
 Vc_Initial = Vnom_PM;
 % Maximum allowed capacitor voltage unbalance (%)
@@ -32,7 +32,7 @@ cosphi = .95;
 % Norminal impedance (Ohm)
 Zn = Vnom_AC^2 / Snom;
 % Short circuit Ratio (/)
-SCR = 1.2;
+SCR = 10;
 
 %% DC Source Parameters:
 % Nominal voltage plus DC source          
@@ -51,13 +51,9 @@ L_b = Z_b/w_b; %L base
 
 %% Bridge Arm Parameters:
 % inductance (H)
-L0 = .25 * L_b;
+L0 = .25 * L_b; 
 % resistance (Ohm)
-R0 = .1;
-
-%% Modulator Parameters:
-% Carriers frequency (Hz)
-Fc = Fnom * 4;       
+R0 = .1;   
 
 %% Switches parameters:
 Ron = 1e-3;
@@ -69,7 +65,7 @@ fs = 1000; % switching frequency [Hz]
 L = L0/2; 
 R = R0/2; 
 tau_sw = Ts_Power;
-alpha_i = (pi/2 - 75/180*pi) / tau_sw;
+alpha_i = (pi/2 - 85/180*pi) / tau_sw; 
 kpout = L*alpha_i;
 kiout = R*alpha_i;
 
@@ -81,28 +77,28 @@ kpp = 1.5;
 kip = 500;
 
 %% Circulating current control loop:
-alpha_ic = (pi/2 - 75/180*pi) / tau_sw;
+alpha_ic = (pi/2 - 87/180*pi) / tau_sw; 
 kpcir = L0*alpha_ic;
 kicir = R0*alpha_ic;
 
 %% VOC parameters:
-N = 3;    % number of phase
+N = 1;
 
 % nominated
 V0 = 1; % nominal L-N RMS voltage
 P_rated = cosphi; % Rated real power
-Q_rated = sqrt(1-cosphi^2); % Rated reactive power
-
-% %%Not nominated
-% V0 = Vnom_AC; % nominal L-N RMS voltage
-% P_rated = Snom*cosphi; % Rated real power
-% Q_rated = Snom*sqrt(1-cosphi^2); % Rated reactive power
+Q_rated = s; % Rated reactive power
 
 delta_wmax = pi; 
 Vmax = 1.05*V0;
 
 phi_r = pi/2;
-eta = delta_wmax*V0^2/(P_rated*sin(phi_r)-Q_rated*cos(phi_r));
-mu = eta/2/V0^2/(Vmax^2-V0^2)*(P_rated*cos(phi_r)+Q_rated*sin(phi_r));
 
+%Old equations
+eta = N*delta_wmax*Vmax^2/(P_rated*sin(phi_r)-Q_rated*cos(phi_r));
+mu = eta*4/((2*Vmax^2-V0^2)^2-V0^4)*(P_rated*cos(phi_r)+Q_rated*sin(phi_r))/N;
+
+%New equations
+% eta = delta_wmax*2*Vmax^2/P_rated;
+% mu = eta*4*Q_rated/((2*Vmax^2-V0^2)^2-V0^4);
 open("Mmc.slx")
