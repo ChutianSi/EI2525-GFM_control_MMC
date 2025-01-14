@@ -7,7 +7,7 @@ clear;
 clc;
 
 % SPS Simulation time step(s)      
-Ts_Power = 5e-7;%5e-7;%1e-5;
+Ts_Power = 2e-6;%5e-7;%1e-5;
 
 %% MMC Submodule Parameters:
 % Number of power module per half-arm                 
@@ -22,7 +22,7 @@ Vc_Initial = Vnom_PM;
 SigmaM = 10;
 fs = 20000; % switching frequency [Hz]
 %Imperix:
-Cm = 0.55e-3;
+Cm = 0.55e3;
 Cmo = 0.55e-3*ones(4,3);
 Ch = 0.94e-6*ones(4,3);
 Rdis = 1e6*ones(4,3);
@@ -95,4 +95,4 @@ alpha_ic = (pi/2 - 87/180*pi) / tau_sw;
 kpcir = L0*alpha_ic;
 kicir = R0*alpha_ic;
 
-open("Mmc_GFL_template.slx")
+open("imperix_template.slx")
